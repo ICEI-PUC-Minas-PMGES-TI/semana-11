@@ -1,0 +1,20 @@
+{
+  "name": "semana-11",
+  "version": "1.0.0",
+  "description": "Repositório referente à semana 11 de DIW",
+  "main": "index.js",
+  "scripts": {
+  "start": "json-server --watch db/db.json --port 3000 --static ./public"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ICEI-PUC-Minas-PMGES-TI/semana-11.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ICEI-PUC-Minas-PMGES-TI/semana-11/issues"
+  },
+  "homepage": "https://github.com/ICEI-PUC-Minas-PMGES-TI/semana-11#readme"
+}
