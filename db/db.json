@@ -1,1 +1,30 @@
-{}
+{
+  "autor": {
+    "nome": "Lucas Maia",
+    "descricao": "Meu blog",
+    "interesses": ["Música", "Assuntos diversos"]
+  },
+  "posts": [
+    {
+      "id": 1,
+      "titulo": "Clube da Esquina",
+      "categoria": "Música",
+      "conteudo": "Opiniões musicais",
+      "data": "11/05/2025"
+    },
+    {
+      "id": 2,
+      "titulo": "Qualquer coisa que eu tenha achado interessante no Twitter",
+      "categoria": "Assuntos diversos",
+      "conteudo": "Inutilidade",
+      "data": "11/05/2025"
+    },
+    {
+      "id": 3,
+      "titulo": "Albuns favoritos",
+      "categoria": "Música",
+      "conteudo": "Auto explicativo",
+      "data": "11/05/2025"
+    }
+  ]
+}
