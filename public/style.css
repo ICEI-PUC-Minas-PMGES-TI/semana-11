@@ -1,0 +1,29 @@
+body {
+    font-family: 'Times New Roman', serif;
+    background: #fff;
+    color: #333;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.container {
+    background: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+.post {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #ccc;
+}
+
+h1, h2 {
+    color: #800000;
+}
+
+a {
+    color: #0066cc;
+}
