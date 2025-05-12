@@ -10,7 +10,7 @@ Repositório referente à semana 11 de DIW
 
 **Print do teste da API com visualização do JSON**
 
-<<  COLOQUE A IMAGEM AQUI >>
+![image](https://github.com/user-attachments/assets/762cf228-f9a5-4ab8-88b1-9b0287293ae2)
 
 **Print da aba NETWORK com requisições Fetch/XHR**
 
