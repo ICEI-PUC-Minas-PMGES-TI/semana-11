@@ -11,3 +11,8 @@ Repositório referente à semana 11 de DIW
 **Print do teste da API com visualização do JSON**
 
 ![image](https://github.com/user-attachments/assets/762cf228-f9a5-4ab8-88b1-9b0287293ae2)
+
+**Print do index.html do site**
+
+![image](https://github.com/user-attachments/assets/6d0c6114-46bd-437c-8289-0423ea9ecb70)
+
