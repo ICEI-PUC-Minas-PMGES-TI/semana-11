@@ -1,16 +1,91 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Meu Blog</title>
+    <title>New Blog</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos adicionais para a lista de posts */
+        .post-list {
+            margin-top: 20px;
+        }
+        .post-item {
+            background: #f8f9fa;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border-left: 4px solid #0066cc;
+        }
+        .post-item h3 {
+            margin-top: 0;
+            color: #0066cc;
+        }
+        .post-meta {
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>Lucas Maia</h1>
         <p>Abandon all hope, ye who enter here!</p>
-        <div id="destaques"></div>
+        
+        <!-- Área de posts (substitui a div destamps) -->
+        <div id="posts-container">
+            <h2>Últimos Posts</h2>
+            <div id="post-list" class="post-list">
+                <!-- Posts serão carregados aqui pelo JavaScript -->
+            </div>
+        </div>
+        
         <a href="detalhes.html">Ver todos os posts</a>
     </div>
-    <script src="app.js"></script>
+    
+    <script>
+        // Carrega os posts do JSON Server
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('http://localhost:3000/posts')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erro ao carregar posts');
+                    }
+                    return response.json();
+                })
+                .then(posts => {
+                    const postList = document.getElementById('post-list');
+                    
+                    if (posts.length === 0) {
+                        postList.innerHTML = '<p>Nenhum post encontrado.</p>';
+                        return;
+                    }
+                    
+                    // Ordena posts por data (mais recente primeiro)
+                    posts.sort((a, b) => new Date(b.data.split('/').reverse().join('-')) - new Date(a.data.split('/').reverse().join('-')));
+                    
+                    // Limita a 3 posts na página inicial
+                    const recentPosts = posts.slice(0, 3);
+                    
+                    recentPosts.forEach(post => {
+                        const postElement = document.createElement('div');
+                        postElement.className = 'post-item';
+                        postElement.innerHTML = `
+                            <h3><a href="detalhes.html?id=${post.id}">${post.titulo}</a></h3>
+                            <div class="post-meta">
+                                <span>Categoria: ${post.categoria}</span> | 
+                                <span>${post.data}</span>
+                            </div>
+                            <p>${post.conteudo.substring(0, 100)}...</p>
+                        `;
+                        postList.appendChild(postElement);
+                    });
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                    document.getElementById('post-list').innerHTML = `
+                        <p class="error">Erro ao carregar posts. Por favor, tente novamente mais tarde.</p>
+                    `;
+                });
+        });
+    </script>
 </body>
 </html>
