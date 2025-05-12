@@ -1,15 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Meus Posts</title>
+    <title>Detalhes do Post</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .post-detail {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 5px;
+            border-left: 4px solid #0066cc;
+            margin-bottom: 20px;
+        }
+        .post-title {
+            color: #0066cc;
+            margin-top: 0;
+        }
+        .post-meta {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Meus Tópicos</h1>
-        <div id="posts-container"></div>
-        <a href="index.html">← Voltar</a>
+        <h1>Detalhes do Post</h1>
+        <div id="post-detail" class="post-detail">
+            <p>Carregando...</p>
+        </div>
+        <a href="index.html" class="back-link">← Voltar para todos os posts</a>
     </div>
-    <script src="app.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const postId = urlParams.get('id');
+
+            if (!postId) {
+                document.getElementById('post-detail').innerHTML = `
+                    <p class="error">Post não encontrado. <a href="index.html">Voltar</a></p>
+                `;
+                return;
+            }
+
+            fetch(`http://localhost:3000/posts/${postId}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Post não encontrado');
+                    }
+                    return response.json();
+                })
+                .then(post => {
+                    document.getElementById('post-detail').innerHTML = `
+                        <h2 class="post-title">${post.titulo}</h2>
+                        <div class="post-meta">
+                            <span>Categoria: ${post.categoria}</span> | 
+                            <span>Publicado em: ${post.data}</span>
+                        </div>
+                        <div class="post-content">
+                            <p>${post.conteudo}</p>
+                        </div>
+                    `;
+                    document.title = `${post.titulo} | Lucas Maia Blog`;
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                    document.getElementById('post-detail').innerHTML = `
+                        <p class="error">Erro ao carregar o post. <a href="index.html">Voltar</a></p>
+                    `;
+                });
+        });
+    </script>
 </body>
 </html>
