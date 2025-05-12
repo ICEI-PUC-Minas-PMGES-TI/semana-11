@@ -4,7 +4,6 @@
     <title>New Blog</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Estilos adicionais para a lista de posts */
         .post-list {
             margin-top: 20px;
         }
@@ -30,19 +29,15 @@
         <h1>Lucas Maia</h1>
         <p>Abandon all hope, ye who enter here!</p>
         
-        <!-- Área de posts (substitui a div destamps) -->
         <div id="posts-container">
             <h2>Últimos Posts</h2>
-            <div id="post-list" class="post-list">
-                <!-- Posts serão carregados aqui pelo JavaScript -->
-            </div>
+            <div id="post-list" class="post-list"></div>
         </div>
         
         <a href="detalhes.html">Ver todos os posts</a>
     </div>
     
     <script>
-        // Carrega os posts do JSON Server
         document.addEventListener('DOMContentLoaded', function() {
             fetch('http://localhost:3000/posts')
                 .then(response => {
@@ -59,10 +54,8 @@
                         return;
                     }
                     
-                    // Ordena posts por data (mais recente primeiro)
                     posts.sort((a, b) => new Date(b.data.split('/').reverse().join('-')) - new Date(a.data.split('/').reverse().join('-')));
                     
-                    // Limita a 3 posts na página inicial
                     const recentPosts = posts.slice(0, 3);
                     
                     recentPosts.forEach(post => {
