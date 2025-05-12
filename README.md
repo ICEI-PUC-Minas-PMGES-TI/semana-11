@@ -16,3 +16,8 @@ Repositório referente à semana 11 de DIW
 
 ![image](https://github.com/user-attachments/assets/6d0c6114-46bd-437c-8289-0423ea9ecb70)
 
+**Print de detalhes do post**
+
+![image](https://github.com/user-attachments/assets/31d8de54-4536-495c-b793-654f2c2e67f2)
+
+
