@@ -20,9 +20,12 @@ Repositório referente à semana 11 de DIW
 
 ![image](https://github.com/user-attachments/assets/31d8de54-4536-495c-b793-654f2c2e67f2)
 
-**Print da aba NETWORK com requisições Fetch/XHR de POST
+**Print da aba NETWORK com requisições Fetch/XHR de POST**
 
 ![image](https://github.com/user-attachments/assets/c0f7c947-c40f-4c2c-b22e-0b7723aa6a04)
+
+![image](https://github.com/user-attachments/assets/bc9020ac-5f8f-494c-81f1-9f2db5234048)
+
 
 
 
